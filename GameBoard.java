@@ -48,7 +48,7 @@ public class GameBoard extends JPanel{
   public boolean isSolved(){
     for(int row = 0; row < SudokuNumbers.GRID_SIZE; ++row){
       for(int col = 0; col < SudokuNumbers.GRID_SIZE; ++col){
-        if(cells[row][col].status == CellStatus.TO_GUESS || cells[row][col].status == CellStatus.WRONG_GUESS)
+        if(cells[row][col].status == Status.TO_GUESS || cells[row][col].status == Status.WRONG_GUESS)
             return false;
       }
     }
@@ -66,14 +66,14 @@ public class GameBoard extends JPanel{
        // For debugging
        System.out.println("You entered " + numberIn);
           if (numberIn == sourceCell.number) {
-            sourceCell.status = CellStatus.CORRECT_GUESS;
+            sourceCell.status = Status.CORRECT_GUESS;
           } else {
-            sourceCell.status = CellStatus.WRONG_GUESS;
+            sourceCell.status = Status.WRONG_GUESS;
           }
           sourceCell.paint();   // re-paint this cell based on its status
 
           if(isSolved()){
-            JOptionPane.showMessageDialog(null, "Congratulation!");
+            JOptionPane.showMessageDialog(null, "Congratulations!");
           }
     }
   }
