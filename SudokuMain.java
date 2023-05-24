@@ -31,6 +31,6 @@ public class SudokuMain extends JFrame {
 
    /** The entry main() entry method */
    public static void main(String[] args) {
-     
+     new SudokuMain();
    }
 }

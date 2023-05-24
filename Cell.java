@@ -15,7 +15,7 @@ public class Cell extends JTextField{
 
   int row, col;
   int number;
-  CellStatus status;
+  Status status;
 
   public Cell(int row, int col){
     super();
@@ -28,24 +28,24 @@ public class Cell extends JTextField{
 
   public void newGame(int number, boolean isGiven){
     this.number = number;
-    status = isGiven ? CellStatus.GIVEN : CellStatus.TO_GUESS;
+    status = isGiven ? Status.GIVEN : Status.TO_GUESS;
       paint();
   }
 
   public void paint() {
-      if (status == CellStatus.GIVEN) {
+      if (status == Status.GIVEN) {
          super.setText(number + "");
          super.setEditable(false);
          super.setBackground(BG_GIVEN);
          super.setForeground(FG_GIVEN);
-      } else if (status == CellStatus.TO_GUESS) {
+      } else if (status == Status.TO_GUESS) {
          super.setText("");
          super.setEditable(true);
          super.setBackground(BG_TO_GUESS);
          super.setForeground(FG_NOT_GIVEN);
-      } else if (status == CellStatus.CORRECT_GUESS) {
+      } else if (status == Status.CORRECT_GUESS) {
          super.setBackground(BG_CORRECT_GUESS);
-      } else if (status == CellStatus.WRONG_GUESS) {
+      } else if (status == Status.WRONG_GUESS) {
          super.setBackground(BG_WRONG_GUESS);
       }
   }
